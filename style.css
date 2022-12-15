@@ -1,0 +1,25 @@
+body{
+  font-size: medium;
+  font-family: system-ui;
+  font-size: 20px;
+}
+
+#select-list{
+  font-family: system-ui;
+}
+
+img{
+  width:20%;
+  height: auto;
+  margin-top: 10px;
+}
+
+
+
+
+
+#generate{
+  background-color: #ff004f;
+  font-family: system-ui;
+
+}

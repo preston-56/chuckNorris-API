@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "readjson": "^2.2.2"
+  }
+}
