@@ -29,11 +29,11 @@ window.onload = async function (e) {
   e.preventDefault()
 };
 
-async function readJson() {
-  let res = await fetch("../db.json");
-  let json = await res.json();
-  console.log(json);
-}
+// async function readJson() {
+//   let res = await fetch("../db.json");
+//   let json = await res.json();
+//   console.log(json);
+// }
 
 
 console.log(`Hello from JavaScript!`);
