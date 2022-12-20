@@ -1,0 +1,27 @@
+{
+  "categories": [
+    [
+      "dev"
+    ],
+    {
+      "id": "1",
+      "value": "Chuck Norris solved the Travelling Salesman problem in O(1) time. Here's the pseudo-code: Break salesman into N pieces. Kick each piece to a different city."
+    },
+    {
+      "id": "2",
+      "value": "Don't worry about tests, Chuck Norris's test cases cover your code too."
+    },
+    {
+      "id": "3",
+      "value": "Chuck Norris hosting is 101% uptime guaranteed."
+    },
+    {
+      "id": "4",
+      "value": "With Chuck Norris P = NP. There's no nondeterminism with Chuck Norris decisions."
+    },
+    {
+      "id": "5",
+      "value": "Chuck Norris can instantiate an abstract class."
+    }
+  ]
+}
