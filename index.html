@@ -5,10 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Chuck Norris Jokes</title>
         <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+       
     </head>
     <body>
         <!-- hardcode content here -->
-        <h4>Chuck Norris Jokes</h4>
+        <h4 id="#heading">Chuck Norris Jokes</h4>
        <div class="outer-container">
            <div class="heading">
             <label for="select-list">select category:</label>
@@ -31,14 +33,47 @@
                             <option value="travel">Travel</option>
                         </select>
            </div>
+         
            <div class="display-facts">
                 <img id="image" src="./src/image/chucknorris_logo_coloured_small@2x.png" alt="[]" />
                 <p id="joke">Author</p>
            </div>
-            <button id="generate">Generate Joke</button>
-            <!-- <span><button id="#add-joke">Add Joke</button></span>
-            <span><button id="#remove-joke">Delete Joke</button></span> -->
+            <button type= "button" id="generate" class="btn btn-primary">Generate Joke</button>      
        </div>
-    </body>
-    <script src="./src/script.js"></script>
+       <br>
+       <div class = "pseudo-container">
+        <h5>Random Jokes</h5>
+              
+            
+       </div>
+    </div>
+    <div id="form-content">
+<form action="">
+    <div class="form-example">
+        <label for="name">Enter New Joke: </label>
+        <input type="text" placeholder="enter your joke" name="name" id="name" required>
+      </div>
+      <div class="form-example">
+    <input class="btn btn-primary mt-2" type="submit" value="Submit">
+</form>
+</div>
+<br>
+
+
+<div class="card mt-2 w-75 " >
+    <div class="card-body">
+    </div>
+   <div id="new-jokes">
+    <ul>
+        <li></li>
+    </ul>
+   </div>
+  </div>
+  <button class="btn btn-primary mt-2" id="delete-btn">Delete</button>
+
+<script  src="./src/script.js"></script>
+<script src="./pseudo.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </html>
