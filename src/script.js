@@ -1,4 +1,3 @@
- 
  async function generateJoke() {
   let url;
   let category =  document.getElementById("select-list").value;
@@ -28,5 +27,9 @@ window.onload = async function (e) {
   document.getElementById("generate").addEventListener('click', generateJoke);
   e.preventDefault()
 };
+
+
+
+
 
 console.log(`Hello from JavaScript!`);
