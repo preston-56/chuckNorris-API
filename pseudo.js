@@ -1,3 +1,4 @@
+// fetch resources from the local server
 async function getJoke() {
   let url = 'http://localhost:3000/jokes' 
       await fetch(url)
@@ -85,6 +86,17 @@ form.addEventListener('submit', e => {
 
         }, 1000)
         */
+
+        // form validation to handle empty entry
+        function IsEmpty() {
+          if (document.forms['form'].joke.value === "") {
+            alert("empty");
+            return false;
+          }
+          return true;
+        }
+        IsEmpty();
+
         form.reset()
     })
     .catch(error => console.error('Error!', error.message))
@@ -93,7 +105,7 @@ form.addEventListener('submit', e => {
 })
 
 
-// delete request deletes resources at the server
+// delete request deletes resources at the local server
 const deleteButton = document.getElementById('delete-btn');
   deleteButton.addEventListener("click", function(event) {
     if (event.target.id === 'delete-btn') {
