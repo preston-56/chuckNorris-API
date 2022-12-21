@@ -87,15 +87,8 @@ form.addEventListener('submit', e => {
         }, 1000)
         */
 
-        // form validation to handle empty entry
-        function IsEmpty() {
-          if (document.forms['form'].joke.value === "") {
-            alert("empty");
-            return false;
-          }
-          return true;
-        }
-        IsEmpty();
+       
+    
 
         form.reset()
     })
@@ -103,6 +96,20 @@ form.addEventListener('submit', e => {
   })
   
 })
+
+ // form validation to handle empty entry
+
+ /* 
+     pseudo code for validation
+ function IsEmpty() {
+  let input = document.forms["Form"]["Joke"].value;
+  
+  if ( input === "" || input === null) {
+    return false;
+  }
+}
+IsEmpty();
+*/
 
 
 // delete request deletes resources at the local server
@@ -123,3 +130,5 @@ const deleteButton = document.getElementById('delete-btn');
 }
 })
 
+
+console.log(`Hello from pseudo!`);
