@@ -39,24 +39,31 @@
                 <img id="image" src="./src/image/chucknorris_logo_coloured_small@2x.png" alt="[]" />
                 <p id="joke">Author</p>
            </div>
+
             <button type= "button" id="generate" class="btn btn-primary mt-2 ">Generate Joke</button>      
-       </div>
+           </div>
        <br>
        <div class = "pseudo-container">
         <h5>Random Jokes</h5>
        </div>
     </div>
     <div id="form-content">
-<form id="form">
+<form id="form" method="POST">
     <div class="form-example">
-        <label >Enter New Joke: </label>
-        <input type="text" placeholder="enter your joke">
+        <div class="card mb-3 mt-2 w-75 p-3">
+          <label >Joke ID</label>
+        <input type="text" placeholder="enter joke ID">
+
+        <label>New Joke</label>
+        <input type="text" placeholder="enter joke">
+    
       </div>
-      <div class="form-example">
-    <input class="btn btn-primary mt-2" type="submit" value="Submit">
+      <div class="form-example" >
+    <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
 </form>
 </div>
-  <button class="btn btn-primary mt-2" id="delete-btn">Delete</button>
+  <button class="btn btn-primary mt-2" id="delete-btn">Delete</button> 
 
 <script  src="./src/script.js"></script>
 <script src="./pseudo.js"></script>
