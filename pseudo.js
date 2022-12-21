@@ -5,7 +5,7 @@ async function getJoke() {
       await fetch(url)
          .then((res) => res.json())
          .then((data) => {
-          // console.log(`data`, data);
+          console.log(`data`, data);
           for (let item of data) {
             jokesDiv.innerHTML += `
     <div class="card p-2 mt-2 mb-2 w-75" id="new-joke">
