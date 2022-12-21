@@ -29,7 +29,4 @@ window.onload = async function (e) {
 };
 
 
-
-
-
 console.log(`Hello from JavaScript!`);
