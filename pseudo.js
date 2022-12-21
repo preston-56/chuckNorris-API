@@ -23,7 +23,9 @@ async function getJoke() {
 getJoke()
 
 // submit data to the server
-/*async function submitData() {
+/*
+                   pseudo code
+async function submitData() {
   let data = {
     "id": "6",
     "value": "Check up on Chuck Norris, He's not that tough!"
@@ -48,31 +50,43 @@ getJoke()
   .catch(function (error){
     document.innerHTML = error.message;
   })
- }*/
+ }
+ */
  
 //setup your event handlers here
 const msg = document.getElementById('form');
 form.addEventListener('submit', e => {
-  e.preventDefault()
-  let url = "http://localhost:3000/jokes"
-  fetch(url, { method: 'POST', body: new FormData(form)})
+  e.preventDefault();
+
+  let url = "http://localhost:3000/jokes";
+  const formData = new FormData(form);
+  const newJoke = Object.fromEntries(formData);
+  fetch(url).then((resp) => resp.json()).then((data) => {
+    const lastJoke = data[data.length -1]
+   fetch(url, { 
+    method: 'POST', 
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body:  JSON.stringify({ id: String(parseInt(lastJoke.id) + 1), value: newJoke.joke})})
     .then(response => response.json())
     .then( function (data){
       document.innerHTML = data["id"]
-      console.log(`pres`, data);
-        msg.innerHTML = "Message sent successfully"
+       msg.innerHTML = "Message sent successfully"
         setTimeout(function(){
             msg.innerHTML = ""
 
-        }, 1000)
+        }, )
         form.reset()
     })
     .catch(error => console.error('Error!', error.message))
+  })
+  
 })
 
 
-
-
+// delete request deletes resources at the server
 const deleteButton = document.getElementById('delete-btn');
   deleteButton.addEventListener("click", function(event) {
     if (event.target.id === 'delete-btn') {
@@ -85,7 +99,7 @@ const deleteButton = document.getElementById('delete-btn');
   }).then(resp => resp.json())
   .then(() => {
   document.getElementById('content').innerHTML = "";
-  deleteButton.style.display = "visible";
+  deleteButton.style.display = "none";
   })
 }
 })
