@@ -56,7 +56,10 @@ form.addEventListener('submit', e => {
   e.preventDefault()
   let url = "http://localhost:3000/jokes"
   fetch(url, { method: 'POST', body: new FormData(form)})
-    .then(response=> {
+    .then(response => response.json())
+    .then( function (data){
+      document.innerHTML = data["id"]
+      console.log(`pres`, data);
         msg.innerHTML = "Message sent successfully"
         setTimeout(function(){
             msg.innerHTML = ""
@@ -67,7 +70,6 @@ form.addEventListener('submit', e => {
     .catch(error => console.error('Error!', error.message))
 })
 
-  
 
 
 
@@ -83,7 +85,7 @@ const deleteButton = document.getElementById('delete-btn');
   }).then(resp => resp.json())
   .then(() => {
   document.getElementById('content').innerHTML = "";
-  deleteButton.style.display = "none";
+  deleteButton.style.display = "visible";
   })
 }
 })
