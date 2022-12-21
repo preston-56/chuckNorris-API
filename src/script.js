@@ -12,7 +12,7 @@
     //get raw json data
     .then((obj) => {
       this.obj = obj;
-      console.log('hapa..', this.obj.value);
+      console.log(`Random Joke:`, this.obj.value);
       // display the joke when the webpage loads
       //document.getElementById("image").src = this.obj.icon_url;
       document.getElementById("joke").innerHTML = this.obj.value;
