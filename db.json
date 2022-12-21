@@ -4,7 +4,7 @@
       "id": "dev"
     }
   ],
-  "jokes": [
+  "jokes":  [
     {
       "id": "1",
       "value": "Chuck Norris solved the Travelling Salesman problem in O(1) time. Here's the pseudo-code: Break salesman into N pieces. Kick each piece to a different city."
@@ -24,13 +24,6 @@
     {
       "id": "5",
       "value": "Chuck Norris can instantiate an abstract class."
-    },
-    {
-      "id": "6",
-      "value": "Check up on Chuck Norris, He's not that tough!"
-    },
-    {
-      "id": "aWMGKp_"
     }
   ]
-}
+  }
