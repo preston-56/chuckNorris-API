@@ -29,4 +29,4 @@ window.onload = async function (e) {
 };
 
 
-console.log(`Hello from JavaScript!`);
+console.log(`Hello from script!`);
