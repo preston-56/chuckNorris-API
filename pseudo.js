@@ -85,12 +85,8 @@ form.addEventListener('submit', e => {
       msg.innerHTML = ""
 
         }, 1000)
-        */
-
-       
-    
-
-        form.reset()
+        */       
+    form.reset()
     })
     .catch(error => console.error('Error!', error.message))
   })
@@ -104,7 +100,7 @@ form.addEventListener('submit', e => {
  function IsEmpty() {
   let input = document.forms["Form"]["Joke"].value;
   
-  if ( input === "" || input === null) {
+  if ( input === "") {
     return false;
   }
 }
