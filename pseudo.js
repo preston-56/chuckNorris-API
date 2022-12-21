@@ -17,7 +17,10 @@ async function getJoke() {
     `;
           }
         });
-/*<p><button class="btn btn-primary btn-sm btn-lg float-end" id="delete-btn">Delete</button></p>*/
+/*
+btn pseudo code
+<p><button class="btn btn-primary btn-sm btn-lg float-end" id="delete-btn">Delete</button></p>
+*/
   }
 
 getJoke()
@@ -53,7 +56,7 @@ async function submitData() {
  }
  */
  
-//setup your event handlers here
+//setup  event handlers 
 const msg = document.getElementById('form');
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -73,11 +76,15 @@ form.addEventListener('submit', e => {
     .then(response => response.json())
     .then( function (data){
       document.innerHTML = data["id"]
-       msg.innerHTML = "Message sent successfully"
-        setTimeout(function(){
-            msg.innerHTML = ""
+      
+      /*
+      pseudo code for confirm submit
+      msg.innerHTML = "Message sent successfully"
+      setTimeout(function(){
+      msg.innerHTML = ""
 
-        }, )
+        }, 1000)
+        */
         form.reset()
     })
     .catch(error => console.error('Error!', error.message))
@@ -99,7 +106,7 @@ const deleteButton = document.getElementById('delete-btn');
   }).then(resp => resp.json())
   .then(() => {
   document.getElementById('content').innerHTML = "";
-  deleteButton.style.display = "none";
+  deleteButton.style.display = "visible";
   })
 }
 })
