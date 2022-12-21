@@ -1,16 +1,18 @@
 // fetch resources from the local server
 async function getJoke() {
+  const jokesDiv = document.getElementById('jokes-list')
   let url = 'http://localhost:3000/jokes' 
       await fetch(url)
          .then((res) => res.json())
          .then((data) => {
+          // console.log(`data`, data);
           for (let item of data) {
-            console.log(data);
-            form.innerHTML += `
-    <div class="card p-2 mt-2 w-75" id="new-joke">
+            jokesDiv.innerHTML += `
+    <div class="card p-2 mt-2 mb-2 w-75" id="new-joke">
     
     <h4 id="content">
     <i class="fas fa-quote-left"></i>
+   <p><button class="btn btn-primary btn-sm btn-lg float-end" id="delete-btn" onclick="handleDelete(${item.id})" >Delete</button></p>
     <p id="random-joke">${item.value} </p>
     <i class="fas fa-quote-right"></i>
     <h4>
@@ -18,47 +20,12 @@ async function getJoke() {
     `;
           }
         });
-/*
-btn pseudo code
-<p><button class="btn btn-primary btn-sm btn-lg float-end" id="delete-btn">Delete</button></p>
-*/
   }
 
-getJoke()
-
-// submit data to the server
-/*
-                   pseudo code
-async function submitData() {
-  let data = {
-    "id": "6",
-    "value": "Check up on Chuck Norris, He's not that tough!"
-  }
-
-  const configurationObject = {
-    method: "POST",
-    headers: {
-      "Content-Type":"application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(data),
-  }
-  
-  return fetch("http://localhost:3000/jokes", configurationObject)
-  .then(function (response){
-    return response.json();
-  })
-  .then(function (data){
-    document.innerHTML = data["id"]["value"];
-    })
-  .catch(function (error){
-    document.innerHTML = error.message;
-  })
- }
- */
- 
+document.addEventListener('DOMContentLoaded', (e) => {
+   getJoke();
+})
 //setup  event handlers 
-const msg = document.getElementById('form');
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -77,15 +44,7 @@ form.addEventListener('submit', e => {
     .then(response => response.json())
     .then( function (data){
       document.innerHTML = data["id"]
-      
-      /*
-      pseudo code for confirm submit
-      msg.innerHTML = "Message sent successfully"
-      setTimeout(function(){
-      msg.innerHTML = ""
 
-        }, 1000)
-        */       
     form.reset()
     })
     .catch(error => console.error('Error!', error.message))
@@ -93,38 +52,17 @@ form.addEventListener('submit', e => {
   
 })
 
- // form validation to handle empty entry
-
- /* 
-     pseudo code for validation
- function IsEmpty() {
-  let input = document.forms["Form"]["Joke"].value;
-  
-  if ( input === "") {
-    return false;
-  }
-}
-IsEmpty();
-*/
-
-
-// delete request deletes resources at the local server
-const deleteButton = document.getElementById('delete-btn');
-  deleteButton.addEventListener("click", function(event) {
-    if (event.target.id === 'delete-btn') {
-    fetch(`http://localhost:3000/jokes`, {
-    method: "DELETE",
-    headers: {
-    "content-type": "application/json",
-    accept: "application/json"
-    }
-  }).then(resp => resp.json())
-  .then(() => {
-  document.getElementById('content').innerHTML = "";
-  deleteButton.style.display = "visible";
-  })
-}
-})
-
+// delete resource
+    handleDelete = async (id) => {
+      try {
+        const response = await fetch(`http://localhost:3000/jokes/${id}`, {
+          method: "DELETE",
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
 console.log(`Hello from pseudo!`);
