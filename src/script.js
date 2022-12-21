@@ -12,7 +12,7 @@
     //get raw json data
     .then((obj) => {
       this.obj = obj;
-      console.log(this.obj.value);
+      console.log('hapa..', this.obj.value);
       // display the joke when the webpage loads
       //document.getElementById("image").src = this.obj.icon_url;
       document.getElementById("joke").innerHTML = this.obj.value;
@@ -24,8 +24,8 @@
 
 window.onload = async function (e) {
   generateJoke();
-  document.getElementById("generate").addEventListener('click', generateJoke);
   e.preventDefault()
+  document.getElementById("generate").addEventListener('click', generateJoke);
 };
 
 
