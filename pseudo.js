@@ -22,17 +22,49 @@ async function getJoke() {
 
 getJoke()
 
-// async function createJoke(item) {
+// submit data to the server
+/*async function submitData() {
+  let data = {
+    "id": "6",
+    "value": "Check up on Chuck Norris, He's not that tough!"
+  }
+
+  const configurationObject = {
+    method: "POST",
+    headers: {
+      "Content-Type":"application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  }
   
-// }
-
-
-
+  return fetch("http://localhost:3000/jokes", configurationObject)
+  .then(function (response){
+    return response.json();
+  })
+  .then(function (data){
+    document.innerHTML = data["id"]["value"];
+    })
+  .catch(function (error){
+    document.innerHTML = error.message;
+  })
+ }*/
+ 
 //setup your event handlers here
-const form = document.getElementById('form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+const msg = document.getElementById('form');
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  let url = "http://localhost:3000/jokes"
+  fetch(url, { method: 'POST', body: new FormData(form)})
+    .then(response=> {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+            msg.innerHTML = ""
 
+        }, 1000)
+        form.reset()
+    })
+    .catch(error => console.error('Error!', error.message))
 })
 
   
